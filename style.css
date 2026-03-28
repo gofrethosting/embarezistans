@@ -263,19 +263,19 @@ nav a.nav-contact:hover {
   );
 }
 .slide-1 {
-  background-image: url("images/dukkandis.png");
+  background-image: url("images/dukkandis.webp");
 }
 .slide-2 {
-  background-image: url("images/motorici.jpg");
+  background-image: url("images/motorici.webp");
 }
 .slide-3 {
-  background-image: url("images/pompa.png");
+  background-image: url("images/pompa.webp");
 }
 .slide-4 {
-  background-image: url("images/elektrikpano.png");
+  background-image: url("images/elektrikpano.webp");
 }
 .slide-5 {
-  background-image: url("images/kompanzasyon.png");
+  background-image: url("images/kompanzasyon.webp");
 }
 
 .slide-content {
@@ -526,7 +526,7 @@ section {
   min-height: 440px;
 }
 .logistics-image {
-  background-image: url(images/kargo.jpg);
+  background-image: url(images/kargo.webp);
   background-size: cover;
   background-position: center;
   position: relative;
