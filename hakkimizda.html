@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asilgen Mühendislik — Hakkımızda</title>
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/background.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <link rel="stylesheet" href="styles/about-page.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EngineeringBusiness",
+    "name": "ASİLGEN MÜHENDİSLİK",
+    "url": "https://www.asilgenmuhendislik.com",
+    "logo": "https://www.asilgenmuhendislik.com/logo.png",
+    "telephone": [
+      "+905414924343",
+      "+905303124924"
+    ],
+    "email": "info@asilgenmuhendislik.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Utku Mh. Çimentepe Cd. Statü Selfie Ofis. No.49 D.18",
+      "addressLocality": "Şehzadeler",
+      "addressRegion": "Manisa",
+      "postalCode": "45010",
+      "addressCountry": "TR"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "description": "Elektrik, solar panel ve profesyonel mühendislik hizmetleri sunan ASİLGEN MÜHENDİSLİK firması."
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Yıldız Canvas -->
+  <canvas id="stars-canvas" aria-hidden="true"></canvas>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <a href="index.html" class="site-header__logo" aria-label="Asilgen Mühendislik — Ana Sayfa">
+      <span class="logo-first">Asilgen</span> <span class="logo-second">Mühendislik</span>
+    </a>
+    <div class="site-header__right">
+      <nav class="site-header__nav" aria-label="Ana Navigasyon">
+        <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+        <a href="hizmetlerimiz.html" class="nav-link">Hizmetlerimiz</a>
+        <a href="iletisim.html" class="nav-link">Bize Ulaşın</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle-btn" aria-label="Temayı değiştir" aria-pressed="false"
+        title="Açık moda geç">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      </button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Menüyü aç" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobil Navigasyon" aria-hidden="true">
+    <a href="hakkimizda.html" class="mobile-nav__link">Hakkımızda</a>
+    <a href="hizmetlerimiz.html" class="mobile-nav__link">Hizmetlerimiz</a>
+    <a href="iletisim.html" class="mobile-nav__link">Bize Ulaşın</a>
+  </nav>
+
+  <!-- HAKKIMIZDA BÖLÜMÜ -->
+  <section class="about-page-section">
+    <div class="about-page-container">
+      <div class="about-page-image-wrapper">
+        <img src="assets/about_page_engineering.png" alt="Asilgen Mühendislik Ofisi" class="about-page-image" />
+      </div>
+      <div class="about-page-content">
+        <span class="about-page-eyebrow">Biz Kimiz?</span>
+        <h1 class="about-page-title">Geleceği Mühendislikle<br>İnşa Ediyoruz</h1>
+        <p class="about-page-text">
+          Asilgen Mühendislik olarak, sektördeki uzun yıllara dayanan tecrübemiz ve alanında uzman kadromuzla, teknoloji ve mühendisliği bir araya getirerek sürdürülebilir, yenilikçi çözümler sunuyoruz.
+        </p>
+        <p class="about-page-text">
+          Amacımız; orta ve alçak gerilim sistemlerinden endüstriyel otomasyona, güneş enerjisi (GES) kurulumlarından proje danışmanlığına kadar uzanan geniş hizmet yelpazemizle, iş ortaklarımızın verimliliğini maksimize etmek ve güvenilir bir geleceğe adım atmalarını sağlamaktır.
+        </p>
+        <p class="about-page-text">
+          Her bir projemizde uluslararası kalite standartlarını benimsiyor, çevreye duyarlı ve dürüst çalışma prensiplerimizden taviz vermeden daima ileriye bakıyoruz.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3 class="footer-heading">İletişim Bilgileri</h3>
+        <div class="footer-contact">
+          <div class="contact-line">
+            <span class="contact-label">Telefon 1</span>
+            <a href="tel:+905414924343" class="contact-value">+90 541 492 43 43</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Telefon 2</span>
+            <a href="tel:+905303124924" class="contact-value">+90 530 312 49 24</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Adres</span>
+            <span class="contact-value">Utku Mh. Çimentepe Cd. Statü Selfie Ofis. No.49 D.18<br>Şehzadeler / Manisa 45010</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <!-- Google Maps Iframe -->
+        <iframe class="footer-map" 
+          src="https://maps.google.com/maps?q=Utku+Mh.+%C3%87imentepe+Cd.+%C5%9Eehzadeler+Manisa&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logo">Asilgen Mühendislik</div>
+      <p>© 2024 Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        const open = hamburger.classList.toggle('is-open');
+        mobileNav.classList.toggle('is-open', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+        mobileNav.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+    }
+  </script>
+  <script type="module" src="scripts/theme.js"></script>
+  <script src="scripts/stars.js" defer></script>
+</body>
+</html>

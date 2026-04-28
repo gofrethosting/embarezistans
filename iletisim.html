@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asilgen Mühendislik — Bize Ulaşın</title>
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/background.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <!-- Footer.css artık import edilmiyor çünkü bu sayfada footer yok -->
+  <link rel="stylesheet" href="styles/contact-page.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EngineeringBusiness",
+    "name": "ASİLGEN MÜHENDİSLİK",
+    "url": "https://www.asilgenmuhendislik.com",
+    "logo": "https://www.asilgenmuhendislik.com/logo.png",
+    "telephone": [
+      "+905414924343",
+      "+905303124924"
+    ],
+    "email": "info@asilgenmuhendislik.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Utku Mh. Çimentepe Cd. Statü Selfie Ofis. No.49 D.18",
+      "addressLocality": "Şehzadeler",
+      "addressRegion": "Manisa",
+      "postalCode": "45010",
+      "addressCountry": "TR"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "description": "Elektrik, solar panel ve profesyonel mühendislik hizmetleri sunan ASİLGEN MÜHENDİSLİK firması."
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Yıldız Canvas (Arka Plan) -->
+  <canvas id="stars-canvas" aria-hidden="true"></canvas>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <a href="index.html" class="site-header__logo" aria-label="Asilgen Mühendislik — Ana Sayfa">
+      <span class="logo-first">Asilgen</span> <span class="logo-second">Mühendislik</span>
+    </a>
+    <div class="site-header__right">
+      <nav class="site-header__nav" aria-label="Ana Navigasyon">
+        <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+        <a href="hizmetlerimiz.html" class="nav-link">Hizmetlerimiz</a>
+        <a href="iletisim.html" class="nav-link">Bize Ulaşın</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle-btn" aria-label="Temayı değiştir" aria-pressed="false" title="Açık moda geç">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      </button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Menüyü aç" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBİL MENÜ -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobil Navigasyon" aria-hidden="true">
+    <a href="hakkimizda.html" class="mobile-nav__link">Hakkımızda</a>
+    <a href="hizmetlerimiz.html" class="mobile-nav__link">Hizmetlerimiz</a>
+    <a href="iletisim.html" class="mobile-nav__link">Bize Ulaşın</a>
+  </nav>
+
+  <!-- İLETİŞİM BÖLÜMÜ -->
+  <section class="contact-page-section" aria-label="İletişim Sayfası">
+    <div class="contact-container">
+      <span class="contact-eyebrow">İletişim</span>
+      <h1 class="contact-page-title">Bize Ulaşın</h1>
+
+      <!-- 3'lü Bilgi Kutuları (Grid) -->
+      <div class="contact-grid">
+        
+        <!-- Adresimiz -->
+        <div class="contact-box" data-type="address" data-value="Utku Mh. Çimentepe Cd. Statü Selfie Ofis. No.49 D.18 Şehzadeler / Manisa" data-action="https://www.google.com/maps/search/?api=1&query=Utku+Mh.+Çimentepe+Cd.+Şehzadeler+Manisa">
+          <h2 class="contact-box-title">Adresimiz</h2>
+          <div class="contact-box-info">
+            Utku Mh. Çimentepe Cd. Statü Selfie Ofis. No.49 D.18<br>
+            Şehzadeler / Manisa 45010
+          </div>
+        </div>
+
+        <!-- Mail Adresimiz -->
+        <div class="contact-box" data-type="mail" data-value="info@asilgenmuhendislik.com" data-action="mailto:info@asilgenmuhendislik.com">
+          <h2 class="contact-box-title">Mail Adresimiz</h2>
+          <div class="contact-box-info">
+            <strong>info@asilgenmuhendislik.com</strong>
+          </div>
+        </div>
+
+        <!-- Bize Ulaşın (Telefonlar) -->
+        <div class="contact-box" data-type="phone" data-value="+905414924343" data-action="tel:+905414924343">
+          <h2 class="contact-box-title">Bize Ulaşın</h2>
+          <div class="contact-box-info">
+            <strong>+90 541 492 43 43</strong>
+            <strong>+90 530 312 49 24</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Google Maps (Footer haritasının aynısı, emoji yok, border radiuslu) -->
+      <div class="contact-map-container">
+        <iframe 
+          src="https://maps.google.com/maps?q=Utku+Mh.+%C3%87imentepe+Cd.+%C5%9Eehzadeler+Manisa&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SCRIPTS -->
+  <script type="module">
+    // Hamburger Menü
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        const open = hamburger.classList.toggle('is-open');
+        mobileNav.classList.toggle('is-open', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+        mobileNav.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+    }
+
+    // İletişim Sayfası Scripti (Pop-uplar için)
+    import { initContactPage } from './scripts/contact-page.js';
+    document.addEventListener('DOMContentLoaded', initContactPage);
+  </script>
+  <script type="module" src="scripts/theme.js"></script>
+  <script src="scripts/stars.js" defer></script>
+</body>
+</html>

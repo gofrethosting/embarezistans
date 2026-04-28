@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asilgen Mühendislik — Mühendislikte Mükemmeliyet</title>
+  <meta name="description"
+    content="Asilgen Mühendislik; elektrik, otomasyon, güneş enerjisi ve mühendislik danışmanlığı alanlarında profesyonel çözümler sunmaktadır.">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/background.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/hero.css">
+  <link rel="stylesheet" href="styles/about.css">
+  <link rel="stylesheet" href="styles/fields.css">
+  <link rel="stylesheet" href="styles/services.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EngineeringBusiness",
+    "name": "ASİLGEN MÜHENDİSLİK",
+    "url": "https://www.asilgenmuhendislik.com",
+    "logo": "https://www.asilgenmuhendislik.com/logo.png",
+    "telephone": [
+      "+905414924343",
+      "+905303124924"
+    ],
+    "email": "info@asilgenmuhendislik.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Utku Mh. Çimentepe Cd. Statü Selfie Ofis. No.49 D.18",
+      "addressLocality": "Şehzadeler",
+      "addressRegion": "Manisa",
+      "postalCode": "45010",
+      "addressCountry": "TR"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "description": "Elektrik, solar panel ve profesyonel mühendislik hizmetleri sunan ASİLGEN MÜHENDİSLİK firması."
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ★ Yıldız Canvas — body'nin ilk child'ı, position:fixed, z-index:1 -->
+  <canvas id="stars-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════════════════ HEADER -->
+  <header class="site-header" role="banner">
+    <a href="#" class="site-header__logo" aria-label="Asilgen Mühendislik — Ana Sayfa">
+      <span class="logo-first">Asilgen</span> <span class="logo-second">Mühendislik</span>
+    </a>
+    <div class="site-header__right">
+      <nav class="site-header__nav" aria-label="Ana Navigasyon">
+        <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+        <a href="hizmetlerimiz.html" class="nav-link">Hizmetlerimiz</a>
+        <a href="iletisim.html" class="nav-link">Bize Ulaşın</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle-btn" aria-label="Temayı değiştir" aria-pressed="false"
+        title="Açık moda geç">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      </button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Menüyü aç" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobil Navigasyon" aria-hidden="true">
+    <a href="hakkimizda.html" class="mobile-nav__link" id="mnav-about">Hakkımızda</a>
+    <a href="hizmetlerimiz.html" class="mobile-nav__link" id="mnav-services">Hizmetlerimiz</a>
+    <a href="iletisim.html" class="mobile-nav__link" id="mnav-contact">Bize Ulaşın</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════ HERO (z-index:10) -->
+  <section class="hero-section" id="hero-section" aria-label="Ana Sayfa Hero">
+    <video class="hero-video" src="videos/coverr-high-voltage-power-line-tower-against-blue-sky-1080p.mp4" autoplay
+      muted loop playsinline preload="auto" aria-hidden="true" id="hero-video"></video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Mühendislikte Mükemmeliyet</h1>
+      <p class="hero-subtitle">Güç · Otomasyon · Enerji · Gelecek</p>
+      <a href="iletisim.html" class="hero-cta" id="hero-cta-btn" aria-label="Bize ulaşın">
+        Bize Ulaşın
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <span class="hero-scroll-indicator__text">Aşağı Kaydır</span>
+      <svg class="hero-scroll-indicator__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ HAKKIMIZDA -->
+  <section class="about-section" id="hakkimizda" aria-label="Hakkımızda">
+    <img class="about-bg-image about-bg-dark" src="images/dark.webp" alt="" aria-hidden="true" role="presentation"
+      onerror="this.style.display='none'">
+    <img class="about-bg-image about-bg-light" src="images/light.webp" alt="" aria-hidden="true" role="presentation"
+      onerror="this.style.display='none'">
+    <div class="about-overlay" aria-hidden="true"></div>
+    <div class="about-content">
+      <span class="about-eyebrow">Biz Kimiz</span>
+      <h2 class="about-title">2014'ten Bu Yana<br>Güvenilir Mühendislik</h2>
+      <p class="about-text">
+        Alanında uzman ekibimizle, uzun yıllara dayanan saha ve proje tecrübemizi birleştiriyor; her projeye özel,
+        sürdürülebilir ve güvenilir mühendislik çözümleri üretiyoruz. 2014 yılından bu yana sektörde edindiğimiz
+        birikimimizle sadece uygulama değil, planlama ve danışmanlık süreçlerinde de profesyonel yaklaşım sunuyoruz.
+      </p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <span class="about-stat__number">10+</span>
+          <span class="about-stat__label">Yıllık Deneyim</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat__number">250+</span>
+          <span class="about-stat__label">Tamamlanan Proje</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat__number">98%</span>
+          <span class="about-stat__label">Müşteri Memnuniyeti</span>
+        </div>
+      </div>
+    </div>
+    <!-- about-deco kaldırıldı -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ ALANLARIMIIZ -->
+  <section class="fields-section" id="alanlarimiz" aria-label="Alanlarımız">
+    <div class="fields-sticky">
+      <header class="fields-header">
+        <p class="fields-eyebrow">Ne Yapıyoruz</p>
+        <h2 class="fields-title">Alanlarımız</h2>
+        <p class="fields-subtitle">Uzman ekibimizle faaliyet gösterdiğimiz temel mühendislik alanları</p>
+      </header>
+      <div class="fields-grid" role="list">
+        <!-- Emoji yok — arka plan watermark ::before ile CSS'te yapılıyor -->
+        <div class="field-box" role="listitem" id="field-1">
+          <div class="field-box__content">
+            <h3 class="field-box__title">Güç Sistemleri ve Çözümleri</h3>
+            <p class="field-box__desc">Orta ve alçak gerilim elektrik sistemlerinin projelendirilmesi ve kurulumu.</p>
+          </div>
+        </div>
+        <div class="field-box" role="listitem" id="field-2">
+          <div class="field-box__content">
+            <h3 class="field-box__title">Elektrik Tesisatı ve Denetimi</h3>
+            <p class="field-box__desc">Endüstriyel tesisler için standartlara uygun kurulum ve periyodik ölçüm
+              hizmetleri.</p>
+          </div>
+        </div>
+        <div class="field-box" role="listitem" id="field-3">
+          <div class="field-box__content">
+            <h3 class="field-box__title">Makina Otomasyon ve Robotik</h3>
+            <p class="field-box__desc">Endüstri 4.0 uyumlu SCADA/PLC yazılımları ve robotik entegrasyon sistemleri.</p>
+          </div>
+        </div>
+        <div class="field-box" role="listitem" id="field-4">
+          <div class="field-box__content">
+            <h3 class="field-box__title">Güneş Enerjisi Sistemleri</h3>
+            <p class="field-box__desc">Sürdürülebilir gelecek için anahtar teslim çatı ve arazi tipi GES projeleri.</p>
+          </div>
+        </div>
+        <div class="field-box" role="listitem" id="field-5">
+          <div class="field-box__content">
+            <h3 class="field-box__title">Mühendislik Hizmetleri</h3>
+            <p class="field-box__desc">Teknik planlama, fizibilite ve projelendirme süreçlerinde profesyonel
+              danışmanlık.</p>
+          </div>
+        </div>
+      </div>
+      <div class="fields-progress" aria-hidden="true">
+        <div class="fields-progress__dot"></div>
+        <div class="fields-progress__dot"></div>
+        <div class="fields-progress__dot"></div>
+        <div class="fields-progress__dot"></div>
+        <div class="fields-progress__dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ HİZMETLERİMİZ -->
+  <section class="services-section" id="hizmetlerimiz" aria-label="Hizmetlerimiz">
+    <div class="services-header">
+      <p class="services-eyebrow">Uzmanlık Alanlarımız</p>
+      <h2 class="services-title">Hizmetlerimiz</h2>
+      <p class="services-subtitle">Her projeye özel, sürdürülebilir ve güvenilir mühendislik çözümleri</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card" id="card-1">
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">I</div>
+          <h3 class="card-title">Kompanzasyon Çözümleri</h3>
+          <p class="card-desc">Reaktif güç kontrolüyle elektrik faturalarında tasarruf sağlama hizmeti.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true" width="13" height="13">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg></span></div>
+        </div>
+      </div>
+
+      <div class="service-card" id="card-2">
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">II</div>
+          <h3 class="card-title">İç Tesisat Muayene Raporu</h3>
+          <p class="card-desc">Binaların iç elektrik tesisatının kontrolü ve resmi rapor hazırlanması.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true" width="13" height="13">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg></span></div>
+        </div>
+      </div>
+
+      <div class="service-card" id="card-3">
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">III</div>
+          <h3 class="card-title">Makina Otomasyonu</h3>
+          <p class="card-desc">Proje bazlı makina otomasyonu devreye alma ve robotik sistem geliştirilmesi.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true" width="13" height="13">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg></span></div>
+        </div>
+      </div>
+
+      <div class="service-card" id="card-4">
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">IV</div>
+          <h3 class="card-title">AG Proje ve Taahhüt</h3>
+          <p class="card-desc">Alçak gerilim sistemlerinin projelendirme, uygulama ve test işlemleri.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true" width="13" height="13">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg></span></div>
+        </div>
+      </div>
+
+      <div class="service-card" id="card-5">
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">V</div>
+          <h3 class="card-title">Enerji Verimliliği Yatırımları</h3>
+          <p class="card-desc">Makinaların revizyon ve retrofit projelerinin hazırlanarak devreye alınması.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true" width="13" height="13">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg></span></div>
+        </div>
+      </div>
+
+      <div class="service-card" id="card-6">
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">VI</div>
+          <h3 class="card-title">Enerji Nakil Hattı Projeleri</h3>
+          <p class="card-desc">Elektrik iletim hatlarının planlanması, kurulumu ve devreye alınması.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true" width="13" height="13">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg></span></div>
+        </div>
+      </div>
+
+      <div class="service-card" id="card-7">
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">VII</div>
+          <h3 class="card-title">Çatı GES Proje ve Taahhüt</h3>
+          <p class="card-desc">Binalara güneş enerjisi sistemi kurulumu ve devreye alma işlemleri.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true" width="13" height="13">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg></span></div>
+        </div>
+      </div>
+
+      <div class="service-card" id="card-8">
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">VIII</div>
+          <h3 class="card-title">OG Proje ve Taahhüt</h3>
+          <p class="card-desc">Orta gerilim elektrik altyapısı projelendirme, uygulama ve resmi onay süreçleri.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true" width="13" height="13">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg></span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Kıvılcım CTA -->
+    <div class="services-spark-area">
+      <p class="services-spark-headline">Başka fikirleriniz mi var?</p>
+      <a href="#iletisim" class="services-spark-btn" id="spark-cta-btn" aria-label="Bize ulaşın">
+        Bize Ulaşın
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ İLETİŞİM & FOOTER -->
+  <footer class="site-footer" id="iletisim" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3 class="footer-heading">İletişim Bilgileri</h3>
+        <div class="footer-contact">
+          <div class="contact-line">
+            <span class="contact-label">Telefon 1</span>
+            <a href="tel:+905414924343" class="contact-value">+90 541 492 43 43</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Telefon 2</span>
+            <a href="tel:+905303124924" class="contact-value">+90 530 312 49 24</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Adres</span>
+            <span class="contact-value">Utku Mh. Çimentepe Cd. Statü Selfie Ofis. No.49 D.18<br>Şehzadeler / Manisa
+              45010</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <!-- Google Maps Iframe -->
+        <iframe class="footer-map"
+          src="https://maps.google.com/maps?q=Utku+Mh.+%C3%87imentepe+Cd.+%C5%9Eehzadeler+Manisa&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logo">Asilgen Mühendislik</div>
+      <p>© 2024 Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <!-- ═════════════════════════════════════════════ SCRIPTS -->
+  <script type="module">
+    // Hero video hata yönetimi
+    const video = document.getElementById('hero-video');
+    if (video) {
+      video.addEventListener('error', () => {
+        console.warn('[Hero] hero.mp4 yüklenemedi — video gizleniyor.');
+        video.style.display = 'none';
+      });
+    }
+
+    // Hamburger menü
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        const open = hamburger.classList.toggle('is-open');
+        mobileNav.classList.toggle('is-open', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+        mobileNav.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('.mobile-nav__link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('is-open');
+          mobileNav.classList.remove('is-open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          mobileNav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+  <script type="module" src="scripts/theme.js"></script>
+  <script src="scripts/stars.js" defer></script>
+  <script type="module" src="scripts/fields.js"></script>
+  <script type="module" src="scripts/services.js"></script>
+  <script type="module" src="scripts/navigator.js"></script>
+</body>
+
+</html>

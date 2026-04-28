@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asilgen Mühendislik — Hizmetlerimiz</title>
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/background.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <link rel="stylesheet" href="styles/services.css">
+  <link rel="stylesheet" href="styles/services-page.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EngineeringBusiness",
+    "name": "ASİLGEN MÜHENDİSLİK",
+    "url": "https://www.asilgenmuhendislik.com",
+    "logo": "https://www.asilgenmuhendislik.com/logo.png",
+    "telephone": [
+      "+905414924343",
+      "+905303124924"
+    ],
+    "email": "info@asilgenmuhendislik.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Utku Mh. Çimentepe Cd. Statü Selfie Ofis. No.49 D.18",
+      "addressLocality": "Şehzadeler",
+      "addressRegion": "Manisa",
+      "postalCode": "45010",
+      "addressCountry": "TR"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "description": "Elektrik, solar panel ve profesyonel mühendislik hizmetleri sunan ASİLGEN MÜHENDİSLİK firması."
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Yıldız Canvas -->
+  <canvas id="stars-canvas" aria-hidden="true"></canvas>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <a href="index.html" class="site-header__logo" aria-label="Asilgen Mühendislik — Ana Sayfa">
+      <span class="logo-first">Asilgen</span> <span class="logo-second">Mühendislik</span>
+    </a>
+    <div class="site-header__right">
+      <nav class="site-header__nav" aria-label="Ana Navigasyon">
+        <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+        <a href="hizmetlerimiz.html" class="nav-link">Hizmetlerimiz</a>
+        <a href="iletisim.html" class="nav-link">Bize Ulaşın</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle-btn" aria-label="Temayı değiştir" aria-pressed="false" title="Açık moda geç">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      </button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Menüyü aç" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobil Navigasyon" aria-hidden="true">
+    <a href="hakkimizda.html" class="mobile-nav__link">Hakkımızda</a>
+    <a href="hizmetlerimiz.html" class="mobile-nav__link">Hizmetlerimiz</a>
+    <a href="iletisim.html" class="mobile-nav__link">Bize Ulaşın</a>
+  </nav>
+
+  <!-- HİZMETLERİMİZ BÖLÜMÜ -->
+  <section class="services-section sp-section" aria-label="Hizmetlerimiz">
+    <div class="services-header">
+      <p class="services-eyebrow">Çözümlerimiz</p>
+      <h2 class="services-title">Tüm Hizmetlerimiz</h2>
+      <p class="services-subtitle">Her projeye özel, sürdürülebilir ve güvenilir mühendislik çözümleri</p>
+    </div>
+    
+    <div class="services-grid">
+      <!-- Kart 1 -->
+      <div class="service-card sp-card" tabindex="0">
+        <div class="sp-card__img-wrapper">
+          <img src="images/kompanzasyon.png" alt="Kompanzasyon Çözümleri" class="sp-card__img">
+        </div>
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">I</div>
+          <h3 class="card-title">Kompanzasyon Çözümleri</h3>
+          <p class="card-desc">Reaktif güç kontrolüyle elektrik faturalarında tasarruf sağlama hizmeti.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi</span></div>
+          <div class="sp-card-extra">
+            <p>Asilgen Mühendislik olarak tesisinizin reaktif güç ihtiyacını analiz ediyor, en uygun kompanzasyon sistemlerini kurarak reaktif ceza riskini tamamen ortadan kaldırıyoruz. Aktif enerji kullanımınızı maksimize ediyoruz.</p>
+            <br>
+            <p>Böylece gereksiz enerji kayıplarının önüne geçiliyor ve şebekenizden en yüksek verimi almanız sağlanıyor. Kurulumdan sonraki periyodik ölçüm ve takiplerimizle de tasarrufunuz garanti altına alınıyor.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kart 2 -->
+      <div class="service-card sp-card" tabindex="0">
+        <div class="sp-card__img-wrapper">
+          <img src="images/ic_tesisat.png" alt="İç Tesisat Muayene Raporu" class="sp-card__img">
+        </div>
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">II</div>
+          <h3 class="card-title">İç Tesisat Muayene Raporu</h3>
+          <p class="card-desc">Binaların iç elektrik tesisatının kontrolü ve resmi rapor hazırlanması.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi</span></div>
+          <div class="sp-card-extra">
+            <p>İş güvenliği ve yasal zorunluluklar kapsamında termal kamera ölçümleri, topraklama testleri, izolasyon testleri ve pano tesisat kontrolleri uzman mühendislerimizce periyodik olarak yürütülür ve detaylıca raporlanır.</p>
+            <br>
+            <p>Olası kaçak akım veya ısınma problemleri önceden tespit edilerek iş ve işçi güvenliği sağlanırken, yasal olarak sunmanız gereken tüm evraklar eksiksiz ve yetkili imzalarla teslim edilir.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kart 3 -->
+      <div class="service-card sp-card" tabindex="0">
+        <div class="sp-card__img-wrapper">
+          <img src="images/makina_otomasyon.png" alt="Makina Otomasyonu" class="sp-card__img">
+        </div>
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">III</div>
+          <h3 class="card-title">Makina Otomasyonu</h3>
+          <p class="card-desc">Proje bazlı makina otomasyonu devreye alma ve robotik sistem geliştirilmesi.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi</span></div>
+          <div class="sp-card-extra">
+            <p>Üretim hatlarının hızlandırılması, insan hatasının en aza indirilmesi ve verimliliğin artırılması amacıyla makinalara özel PLC/SCADA yazılımları ile anahtar teslim otomasyon çözümleri sunuyoruz.</p>
+            <br>
+            <p>Aynı zamanda robotik kol ve sürücü sistem entegrasyonlarıyla üretim bandını tamamen insansız veya yüksek güvenlikli (Cobot) yapılara kavuşturarak, işletmenizi Endüstri 4.0 standartlarına taşıyoruz.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kart 4 -->
+      <div class="service-card sp-card" tabindex="0">
+        <div class="sp-card__img-wrapper">
+          <img src="images/ag_proje.png" alt="AG Proje ve Taahhüt" class="sp-card__img">
+        </div>
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">IV</div>
+          <h3 class="card-title">AG Proje ve Taahhüt</h3>
+          <p class="card-desc">Alçak gerilim sistemlerinin projelendirme, uygulama ve test işlemleri.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi</span></div>
+          <div class="sp-card-extra">
+            <p>Endüstriyel tesisler, fabrikalar ve ticari binalar için alçak gerilim (AG) elektrik panolarının, aydınlatma ve kuvvet dağıtım şebekelerinin tasarımını ve saha kurulumunu güvenle gerçekleştiriyoruz.</p>
+            <br>
+            <p>Proje yönetiminden kablo çekimine, tava montajından nihai test ve devreye alma (commissioning) süreçlerine kadar anahtar teslim hizmet ile kaliteden taviz vermeyen altyapılar inşa ediyoruz.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kart 5 -->
+      <div class="service-card sp-card" tabindex="0">
+        <div class="sp-card__img-wrapper">
+          <img src="images/enerji_verimliligi.png" alt="Enerji Verimliliği Yatırımları" class="sp-card__img">
+        </div>
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">V</div>
+          <h3 class="card-title">Enerji Verimliliği Yatırımları</h3>
+          <p class="card-desc">Makinaların revizyon ve retrofit projelerinin hazırlanarak devreye alınması.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi</span></div>
+          <div class="sp-card-extra">
+            <p>Eskiyen veya yüksek enerji tüketen mevcut üretim altyapınızı modernize ediyor, enerji tasarruflu akıllı motor ve invertör (sürücü) sistemleriyle retrofit projeleri geliştiriyoruz.</p>
+            <br>
+            <p>Bu yatırımlar çok kısa süre içerisinde kendini amorti etmekte, hem elektrik faturalarını düşürmekte hem de makinalarınızın ömrünü uzatarak şirketinizin sürdürülebilirlik hedeflerine katkı sağlamaktadır.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kart 6 -->
+      <div class="service-card sp-card" tabindex="0">
+        <div class="sp-card__img-wrapper">
+          <img src="images/enerji_nakil.png" alt="Enerji Nakil Hattı Projeleri" class="sp-card__img">
+        </div>
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">VI</div>
+          <h3 class="card-title">Enerji Nakil Hattı Projeleri</h3>
+          <p class="card-desc">Elektrik iletim hatlarının planlanması, kurulumu ve devreye alınması.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi</span></div>
+          <div class="sp-card-extra">
+            <p>Şebeke bağlantı noktalarından (trafo merkezlerinden) doğrudan tesisinize kadar olan yeraltı ve havai hat enerji nakil projelerini ilgili tüm yönetmeliklere uygun olarak inşa ediyoruz.</p>
+            <br>
+            <p>Hat planlama ve topografik ölçümlerden direk montajına, izolatör kurulumlarından dağıtım şirketleri nezdinde yürütülen resmi onaylara kadar tüm süreçler tecrübeli mühendislerimizce tamamlanır.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kart 7 -->
+      <div class="service-card sp-card" tabindex="0">
+        <div class="sp-card__img-wrapper">
+          <img src="images/cati_ges.png" alt="Çatı GES Proje ve Taahhüt" class="sp-card__img">
+        </div>
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">VII</div>
+          <h3 class="card-title">Çatı GES Proje ve Taahhüt</h3>
+          <p class="card-desc">Binalara güneş enerjisi sistemi kurulumu ve devreye alma işlemleri.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi</span></div>
+          <div class="sp-card-extra">
+            <p>Geleceğin temiz enerjisini çatınıza taşıyoruz. Güneş paneli yerleşimi, gölgelenme ve radyasyon analizlerini kapsayan detaylı fizibilite raporlarıyla yatırımınıza yön veriyoruz.</p>
+            <br>
+            <p>Bağlantı anlaşmaları, çağrı mektupları ve TEDAŞ onay süreçlerinin ardından, premium inverter ve fotovoltaik panellerle anahtar teslim santral kurulumu gerçekleştiriyor, enerjinizi kendi çatınızda üretmenizi sağlıyoruz.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kart 8 -->
+      <div class="service-card sp-card" tabindex="0">
+        <div class="sp-card__img-wrapper">
+          <img src="images/og_proje.png" alt="OG Proje ve Taahhüt" class="sp-card__img">
+        </div>
+        <canvas class="card-particles" aria-hidden="true"></canvas>
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-content">
+          <div class="card-roman" aria-hidden="true">VIII</div>
+          <h3 class="card-title">OG Proje ve Taahhüt</h3>
+          <p class="card-desc">Orta gerilim elektrik altyapısı projelendirme, uygulama ve resmi onay süreçleri.</p>
+          <div class="card-footer"><span class="card-link">Detaylı Bilgi</span></div>
+          <div class="sp-card-extra">
+            <p>Orta gerilim (OG) şebeke tasarımları, trafo merkezi kurulumu, köşk ve açık şalt tesisi montajlarını profesyonel ekibimizle gerçekleştirerek tesisinizi elektrik altyapısına güçlü bir şekilde bağlıyoruz.</p>
+            <br>
+            <p>Kesici ve ayırıcı testleri, röle koordinasyonu ve topraklama ağlarının kusursuz kurulumuyla yüksek güçlü elektrik şebekenizi yıllar boyu emniyetli bir şekilde çalıştırabilmeniz için hizmet veriyoruz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3 class="footer-heading">İletişim Bilgileri</h3>
+        <div class="footer-contact">
+          <div class="contact-line">
+            <span class="contact-label">Telefon 1</span>
+            <a href="tel:+905414924343" class="contact-value">+90 541 492 43 43</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Telefon 2</span>
+            <a href="tel:+905303124924" class="contact-value">+90 530 312 49 24</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Adres</span>
+            <span class="contact-value">Utku Mh. Çimentepe Cd. Statü Selfie Ofis. No.49 D.18<br>Şehzadeler / Manisa 45010</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <!-- Google Maps Iframe -->
+        <iframe class="footer-map" 
+          src="https://maps.google.com/maps?q=Utku+Mh.+%C3%87imentepe+Cd.+%C5%9Eehzadeler+Manisa&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logo">Asilgen Mühendislik</div>
+      <p>© 2024 Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        const open = hamburger.classList.toggle('is-open');
+        mobileNav.classList.toggle('is-open', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+        mobileNav.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+    }
+
+    import { initServicesPage } from './scripts/services-page.js';
+    document.addEventListener('DOMContentLoaded', initServicesPage);
+  </script>
+  <script type="module" src="scripts/theme.js"></script>
+  <script src="scripts/stars.js" defer></script>
+</body>
+</html>
