@@ -1,0 +1,81 @@
+/* ==========================================================================
+   background.css — Z-index sistemi ve section arka planları
+   Canvas: z-index:0 — tüm içeriğin altında
+   Hero: z-index:10 — canvas'ı tamamen kapatır
+   Diğer section'lar: z-index:2, rgba() arka plan (opak hex YOK)
+   ========================================================================== */
+
+/* Scrollbar gizle */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar { display: none; }
+
+/* ── Canvas: z-index SIFIR ─────────────────────────────────────────────────── */
+#stars-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;            /* Tüm içeriğin altında */
+  pointer-events: none;
+  display: block;
+}
+
+/* ── Hero: canvas'ı tamamen kapat ──────────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  z-index: 10;
+  background: #000;      /* Opak — canvas görünmez */
+  isolation: isolate;
+}
+
+/* ── Diğer section'lar: rgba arka plan (opak hex YOK) ──────────────────────── */
+.about-section {
+  position: relative;
+  z-index: 2;
+  /* Arka plan: JS/CSS görsel overlay ile yönetilir, section'ın kendisi şeffaf */
+  background: transparent;
+}
+
+.fields-section {
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 10, 10, 0.0); /* Tamamen şeffaf — yıldızlar tam görünür */
+}
+
+[data-theme="light"] .fields-section {
+  background: rgba(240, 240, 240, 0.0);
+}
+
+.services-section {
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 10, 10, 0.0);
+}
+
+[data-theme="light"] .services-section {
+  background: rgba(240, 240, 240, 0.0);
+}
+
+.contact-section {
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 10, 10, 0.0) !important;
+}
+
+[data-theme="light"] .contact-section {
+  background: rgba(240, 240, 240, 0.0) !important;
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Z-index hiyerarşisi ───────────────────────────────────────────────────── */
+.site-header  { z-index: 100; }
+.mobile-nav   { z-index: 99;  }
+.section-nav  { z-index: 200; }  /* Kullanıcının isteği: 200 */

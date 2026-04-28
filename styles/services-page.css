@@ -1,0 +1,234 @@
+/* ==========================================================================
+   ASILGEN MÜHENDİSLİK — Services Page Expanding Cards
+   ========================================================================== */
+
+/* Hizmetler Sayfası Kapsayıcı */
+.sp-section {
+  position: relative;
+  z-index: 2; /* Normalde 2. JS ile genişleyince 10000 olacak */
+  padding: 160px 24px 100px;
+}
+
+/* KARTLARIN TEK ANİMASYONLA BELİRMESİ */
+@keyframes popInAll {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* KART TASARIMI */
+.service-card.sp-card {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-bg) !important;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  
+  /* Giriş Animasyonu */
+  opacity: 0;
+  animation: popInAll 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  
+  /* Daha yavaş büyüme için 0.8s */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, top 0.8s cubic-bezier(0.25, 1, 0.5, 1), left 0.8s cubic-bezier(0.25, 1, 0.5, 1), width 0.8s cubic-bezier(0.25, 1, 0.5, 1), height 0.8s cubic-bezier(0.25, 1, 0.5, 1), padding 0.8s, gap 0.8s;
+  will-change: transform, top, left, width, height;
+}
+
+/* Hoverla Havalanma */
+.service-card.sp-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+}
+
+/* GENİŞLEMİŞ (EXPANDED) DURUM */
+.service-card.sp-card.is-expanded {
+  transform: none !important;
+  flex-direction: row; /* YATAY DÜZEN: Sol resim, sağ metin */
+  padding: 40px !important; /* Dış karta padding veriyoruz */
+  gap: 40px; /* Resim ve metin arası boşluk */
+  border-radius: 24px;
+  cursor: default;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 968px) {
+  .service-card.sp-card.is-expanded {
+    flex-direction: column;
+    padding: 24px !important;
+    gap: 24px;
+  }
+}
+
+/* KART İÇİ RESİM */
+.sp-card__img-wrapper {
+  width: 100%;
+  height: 180px; /* Normal Yükseklik */
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+  border-radius: 0; /* Başlangıçta border-radius yok */
+  transition: height 0.8s cubic-bezier(0.25, 1, 0.5, 1), border-radius 0.8s;
+}
+
+/* Genişleyince Resim Solda ve Border Radius'lu (Desktop) */
+@media (min-width: 969px) {
+  .service-card.sp-card.is-expanded .sp-card__img-wrapper {
+    height: 100%;
+    width: calc((90vw - 80px) * 0.45);
+    flex: 0 0 calc((90vw - 80px) * 0.45);
+    border-radius: 16px; /* BÜYÜYÜNCE RESİM KÖŞELERİ YUVARLAK */
+  }
+}
+
+/* Mobilde Resim Düzeni */
+@media (max-width: 968px) {
+  .service-card.sp-card.is-expanded .sp-card__img-wrapper {
+    height: 35vh;
+    width: 100%;
+    flex: 0 0 auto;
+    border-radius: 16px;
+  }
+}
+
+.sp-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* SADECE kapalı durumdayken hover olunca büyüsün */
+.service-card.sp-card:not(.is-expanded):hover .sp-card__img {
+  transform: scale(1.1);
+}
+
+/* KART İÇERİĞİ */
+.service-card.sp-card .card-content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: padding 0.8s;
+  overflow: hidden; /* Scrollbar'ı JS kontrol edecek */
+  position: relative;
+  z-index: 10;
+}
+
+.service-card.sp-card .card-title,
+.service-card.sp-card .card-desc,
+.service-card.sp-card .card-roman {
+  color: var(--color-text-primary);
+}
+
+.service-card.sp-card .card-desc {
+  color: var(--color-text-secondary);
+}
+
+/* Genişleyince Sağ Tarafta Başlık ve Açıklama */
+@media (min-width: 969px) {
+  .service-card.sp-card.is-expanded .card-content {
+    padding: 0; /* Padding'i artık dış container sağlıyor */
+    width: calc((90vw - 80px) * 0.55 - 40px); /* 40px gap çıkarıldı */
+    flex: 0 0 calc((90vw - 80px) * 0.55 - 40px);
+    justify-content: center; /* Dikey olarak ortala */
+  }
+}
+
+@media (max-width: 968px) {
+  .service-card.sp-card.is-expanded .card-content {
+    padding: 0;
+    width: 100%;
+    min-width: calc(90vw - 48px); /* 24px padding on each side */
+  }
+}
+
+.service-card.sp-card.is-expanded .card-title {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.service-card.sp-card.is-expanded .card-desc {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  flex: none; /* Boşluğu kapatmak için flex:1 özelliğini iptal ediyoruz */
+}
+
+.service-card.sp-card.is-expanded .card-footer,
+.service-card.sp-card.is-expanded .card-roman {
+  display: none; /* Genişleyince roma rakamı ve link kaybolsun, daha temiz görünür */
+}
+
+/* GİZLİ EKSTRA YAZI */
+.sp-card-extra {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s, max-height 0.4s, margin 0.4s;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.service-card.sp-card.is-expanded .sp-card-extra {
+  opacity: 1;
+  max-height: 1000px;
+  margin-top: 1.5rem;
+  transition: opacity 0.8s 0.2s, max-height 0.8s, margin 0.8s;
+}
+
+/* KAPATMA BUTONU */
+.sp-card-close-btn {
+  position: absolute;
+  top: -20px; right: -20px; /* Dışarıya taşırmalı şık bir görünüm */
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 50;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s, background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.service-card.sp-card.is-expanded .sp-card-close-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-40px, 40px); /* İçeri gelsin */
+}
+
+.sp-card-close-btn:hover {
+  background: var(--color-accent);
+  color: #000;
+  transform: translate(-40px, 40px) scale(1.1) rotate(90deg) !important;
+}
+
+/* ARKAPLAN BACKDROP */
+.sp-card-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s; /* Yavaş geçişe uysun */
+}
+
+.sp-card-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* PLACEHOLDER */
+.sp-card-placeholder {
+  visibility: hidden;
+  pointer-events: none;
+}

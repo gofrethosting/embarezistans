@@ -1,0 +1,317 @@
+/* ==========================================================================
+   ASILGEN MÜHENDİSLİK — Global CSS
+   Renk değişkenleri, reset, tipografi, tema sistemi, z-index belgesi
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Google Fonts — Montserrat
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* --------------------------------------------------------------------------
+   CSS @layer sıralaması
+   -------------------------------------------------------------------------- */
+@layer reset, tokens, base, layout, utilities;
+
+/* --------------------------------------------------------------------------
+   Z-INDEX MERKEZİ BELGESİ
+   Katman    Değer   Açıklama
+   -------   -----   ---------------------------------------------------------
+   stars-bg    0     Sabit yıldız canvas (arka plan)
+   about-img   0     Hakkımızda arka plan görseli
+   about-overlay 1   Hakkımızda koyu overlay
+   about-stars 2     Hakkımızda üzerindeki yıldız katmanı (global canvas)
+   hero-video  1     Hero video elementi
+   hero-overlay 2    Hero koyu overlay
+   hero-content 3    Hero metin + CTA
+   card-canvas 0     Kart içi partikül canvas
+   card-content 1    Kart metin içeriği
+   header    100     Floating sticky header
+   -------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   CSS Custom Properties — Renk Tokenleri
+   -------------------------------------------------------------------------- */
+@layer tokens {
+
+  :root,
+  [data-theme="dark"] {
+    /* Arka plan ve yüzeyler */
+    --color-bg: #0a0a0a;
+    --color-surface: rgba(255, 255, 255, 0.03);
+    --color-surface-hover: rgba(255, 255, 255, 0.06);
+
+    /* Metin */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-text-muted: rgba(255, 255, 255, 0.4);
+
+    /* Accent — altın / koyu sarı */
+    --color-accent: #f5c518;
+    --color-accent-hover: #ffd700;
+    --color-accent-rgb: 245, 197, 24;
+
+    /* Yıldız rengi */
+    --color-star: #ffffff;
+    --color-star-rgb: 255, 255, 255;
+
+    /* Header */
+    --color-header-bg: rgba(10, 10, 10, 0.45);
+
+    /* Kenarlık */
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-border-accent: rgba(245, 197, 24, 0.15);
+
+    /* Gölge */
+    --shadow-header: 0 4px 32px rgba(0, 0, 0, 0.3);
+    --shadow-card-hover: 0 20px 60px rgba(245, 197, 24, 0.15);
+
+    /* Overlay */
+    --color-hero-overlay: rgba(0, 0, 0, 0.45);
+    --color-about-overlay: rgba(0, 0, 0, 0.35);
+  }
+
+  [data-theme="light"] {
+    /* Arka plan ve yüzeyler */
+    --color-bg: #f0f0f0;
+    --color-surface: rgba(0, 0, 0, 0.04);
+    --color-surface-hover: rgba(0, 0, 0, 0.08);
+
+    /* Metin */
+    --color-text-primary: #0a0a0a;
+    --color-text-secondary: rgba(10, 10, 10, 0.7);
+    --color-text-muted: rgba(10, 10, 10, 0.45);
+
+    /* Accent — light modda KOYU (sarı değil, okunabilir) */
+    --color-accent: #1a1a1a;
+    --color-accent-hover: #333333;
+    --color-accent-rgb: 26, 26, 26;
+
+    /* Yıldız rengi */
+    --color-star: #000000;
+    --color-star-rgb: 0, 0, 0;
+
+    /* Header */
+    --color-header-bg: rgba(245, 245, 245, 0.55);
+
+    /* Kenarlık */
+    --color-border: rgba(0, 0, 0, 0.12);
+    --color-border-accent: rgba(26, 26, 26, 0.2);
+
+    /* Gölge */
+    --shadow-header: 0 4px 32px rgba(0, 0, 0, 0.1);
+    --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+    /* Overlay */
+    --color-hero-overlay: rgba(0, 0, 0, 0.45);
+    --color-about-overlay: rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reset
+   -------------------------------------------------------------------------- */
+@layer reset {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  img,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Base — Tipografi ve Tema Geçişi
+   -------------------------------------------------------------------------- */
+@layer base {
+
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+
+    /* Yumuşak tema geçişi */
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease;
+
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* prefers-reduced-motion: tüm animasyonları devre dışı bırak */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Layout Yardımcıları
+   -------------------------------------------------------------------------- */
+@layer layout {
+  .container {
+    width: min(90vw, 1200px);
+    margin-inline: auto;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--color-text-secondary);
+    margin-bottom: 3rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Genel Yardımcı Sınıflar
+   -------------------------------------------------------------------------- */
+@layer utilities {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .accent-text {
+    color: var(--color-accent);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section Navigator — Sağ Kenar Bölüm Göstergesi
+   -------------------------------------------------------------------------- */
+.section-nav {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+  direction: rtl;  /* Nokta sağda, etiket solda */
+}
+
+.section-nav__item:hover,
+.section-nav__item.is-active {
+  opacity: 1;
+}
+
+.section-nav__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  background: transparent;
+  flex-shrink: 0;
+  transition: background 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1), width 0.3s ease, height 0.3s ease;
+}
+
+.section-nav__item.is-active .section-nav__dot {
+  background: var(--color-accent);
+  transform: scale(1.5);
+}
+
+.section-nav__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  transition: color 0.4s ease;
+  /* Varsayılan gizli, hover'da göster */
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.section-nav__item:hover .section-nav__label,
+.section-nav__item.is-active .section-nav__label {
+  max-width: 120px;
+  opacity: 1;
+}
+
+/* Mobilde gizle */
+@media (max-width: 768px) {
+  .section-nav { display: none; }
+}

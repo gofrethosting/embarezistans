@@ -1,0 +1,305 @@
+/* ==========================================================================
+   ASILGEN MÜHENDİSLİK — Header CSS
+   Floating sticky header, navigasyon, tema butonu, hamburger menü
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Site Header — Viewport Ortasında Yüzen Kapsayıcı
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 1200px);
+  z-index: 100;
+
+  /* İnce glassmorphism */
+  background: var(--color-header-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+
+  /* İç düzen */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 36px;
+
+  /* Tema geçişinde smooth */
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Logo / Marka Adı
+   -------------------------------------------------------------------------- */
+.site-header__logo {
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+  display: flex;
+  gap: 6px;
+}
+
+.logo-first {
+  color: #f5c518;
+}
+
+.logo-second {
+  color: var(--color-accent);
+}
+
+.site-header__logo:hover {
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   Sağ Taraf — Navigasyon + Tema Butonu
+   -------------------------------------------------------------------------- */
+.site-header__right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   Navigasyon Linkleri
+   -------------------------------------------------------------------------- */
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.nav-link {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+
+/* Alt çizgi efekti */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-accent);
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Tema Geçiş Butonu
+   -------------------------------------------------------------------------- */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 30%;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
+  cursor: pointer;
+  box-shadow: none;
+  /* Glow yok */
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+  background: rgba(var(--color-accent-rgb), 0.08);
+  box-shadow: none;
+  /* Hover'da da glow yok */
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.theme-toggle:hover svg {
+  transform: none;
+  /* Svg dönüşü de kaldırıldı — sade */
+}
+
+/* İkon görünürlüğü */
+.icon-sun,
+.icon-moon {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Dark modda güneş ikonu gizli, ay ikonu görünür */
+[data-theme="dark"] .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .icon-moon {
+  display: block;
+}
+
+/* Light modda ay ikonu gizli, güneş ikonu görünür */
+[data-theme="light"] .icon-moon {
+  display: none;
+}
+
+[data-theme="light"] .icon-sun {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Hamburger Menü Butonu (Mobil)
+   -------------------------------------------------------------------------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  gap: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.hamburger:hover {
+  background: rgba(var(--color-accent-rgb), 0.1);
+}
+
+.hamburger__line {
+  width: 22px;
+  height: 2px;
+  background: var(--color-text-primary);
+  border-radius: 2px;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease;
+  transform-origin: center;
+}
+
+/* Hamburger → X animasyonu */
+.hamburger.is-open .hamburger__line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.is-open .hamburger__line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.is-open .hamburger__line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Mobil Navigasyon Panel
+   -------------------------------------------------------------------------- */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 99;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+
+  /* Başlangıç durumu — kapalı */
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.03);
+  transition:
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav.is-open {
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1);
+}
+
+.mobile-nav__link {
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  transition: color 0.2s ease;
+}
+
+.mobile-nav__link:hover {
+  color: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — Tablet ve Mobil
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 12px 20px;
+  }
+
+  /* Masaüstü nav gizle */
+  .site-header__nav {
+    display: none;
+  }
+
+  /* Tema butonu mobilde de görünür kal */
+  .site-header__right {
+    gap: 0.75rem;
+  }
+
+  /* Hamburger göster */
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    top: 10px;
+    width: calc(100vw - 24px);
+    padding: 10px 16px;
+  }
+
+  .site-header__logo {
+    font-size: 0.95rem;
+  }
+}

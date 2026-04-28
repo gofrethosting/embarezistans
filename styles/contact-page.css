@@ -1,0 +1,166 @@
+/* ==========================================================================
+   ASILGEN MÜHENDİSLİK — Contact Page CSS
+   ========================================================================== */
+
+.contact-page-section {
+  position: relative;
+  z-index: 2;
+  padding: 120px 24px 30px; /* Üst padding header için yeterli, altı kıstım */
+  height: 100vh; /* min-height yerine net height ki aşağı taşmasın */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-container {
+  width: min(95vw, 1200px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.contact-page-title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* 3'lü Grid Yapısı */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.contact-box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  background: var(--color-surface-hover);
+  border-color: var(--color-border-accent);
+}
+
+.contact-box-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+  transition: color 0.3s;
+}
+
+.contact-box:hover .contact-box-title {
+  color: var(--color-accent);
+}
+
+.contact-box-info {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.contact-box-info strong {
+  color: var(--color-text-primary);
+  display: block;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Harita Container */
+.contact-map-container {
+  width: 100%;
+  flex: 1; /* KALAN TÜM BOŞLUĞU DOLDURUR, AŞAĞI TAŞMAZ! */
+  min-height: 200px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  background: var(--color-surface);
+}
+
+/* Aksiyon Menüsü (Seçenek Kutusu) */
+.action-menu {
+  position: absolute;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+  min-width: 200px;
+  overflow: hidden;
+  transition: opacity 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  
+  /* Kutunun tam ortasında (merkezinde) çıkması için */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%) scale(0.95);
+}
+
+.action-menu.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.action-menu button {
+  background: transparent;
+  border: none;
+  color: var(--color-text-primary);
+  padding: 16px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  width: 100%;
+  position: relative;
+  z-index: 2; /* Okun üstünde kalması için */
+  border-bottom: 1px solid var(--color-border);
+}
+
+.action-menu button:last-child {
+  border-bottom: none; /* En alttaki butonun alt çizgisi olmaz */
+}
+
+.action-menu button:hover {
+  background: var(--color-accent);
+  color: #000;
+}
+
+@media (max-width: 968px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

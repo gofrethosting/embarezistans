@@ -1,0 +1,236 @@
+/* ==========================================================================
+   ASILGEN MÜHENDİSLİK — Hero Section CSS
+   Full-viewport video arka plan, overlay, içerik katmanı
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero Section Kapsayıcı
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  /* z-index ve isolation background.css'te tanımlı */
+}
+
+/* --------------------------------------------------------------------------
+   Video Elementi — Tam Alan Kaplama
+   -------------------------------------------------------------------------- */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Video yüklenemezse fallback arka plan rengi */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Video Overlay — Karartma Katmanı
+   -------------------------------------------------------------------------- */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-hero-overlay);
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Hero İçerik Katmanı — Alt Orta Hizalaması
+   -------------------------------------------------------------------------- */
+.hero-content {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: min(90vw, 900px);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Başlık
+   -------------------------------------------------------------------------- */
+.hero-title {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+
+  text-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.5),
+    0 4px 40px rgba(0, 0, 0, 0.3);
+
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroTitleIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Alt Başlık
+   -------------------------------------------------------------------------- */
+.hero-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroTitleIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+
+/* --------------------------------------------------------------------------
+   CTA Butonu
+   -------------------------------------------------------------------------- */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+  padding: 14px 36px;
+  background: #f5c518; /* Her temada sabit sarı */
+  color: #0a0a0a; /* Siyah yazı okunabilirliği sağlar */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+
+  /* Geçiş efektleri */
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroCtaIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
+}
+
+.hero-cta:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(245, 197, 24, 0.35),
+    0 2px 8px rgba(245, 197, 24, 0.2);
+  background: #ffd700;
+}
+
+.hero-cta:active {
+  transform: scale(0.98);
+}
+
+/* CTA ikon */
+.hero-cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.hero-cta:hover svg {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Göstergesi (animasyonlu ok)
+   -------------------------------------------------------------------------- */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.5s forwards;
+}
+
+.hero-scroll-indicator__text {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+.hero-scroll-indicator__arrow {
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0.4);
+  animation: arrowBounce 1.8s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes
+   -------------------------------------------------------------------------- */
+@keyframes heroTitleIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroCtaIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-content {
+    bottom: 15%;
+    padding: 0 1rem;
+  }
+
+  .hero-cta {
+    padding: 12px 28px;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    bottom: 12%;
+  }
+
+  .hero-title {
+    letter-spacing: -0.01em;
+  }
+}

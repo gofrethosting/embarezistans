@@ -1,0 +1,351 @@
+/* ==========================================================================
+   ASILGEN MÜHENDİSLİK — Services Section CSS (v2)
+   Büyük kartlar, Romen rakamı numarası, statik partiküller, spark CTA
+   ========================================================================== */
+
+/* Section */
+.services-section {
+  position: relative;
+  padding: 100px 0 120px;
+  /* background ve z-index background.css'te */
+}
+
+.services-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(var(--color-accent-rgb), 0.3), transparent);
+}
+
+/* Başlık */
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 0 24px;
+}
+
+.services-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.services-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+  transition: color 0.4s ease;
+}
+
+.services-subtitle {
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  color: var(--color-text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+  transition: color 0.4s ease;
+}
+
+/* Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  width: min(90vw, 1200px);
+  margin: 0 auto;
+}
+
+/* ── Kart ────────────────────────────────────────────────────────────────────*/
+.service-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--color-border-accent);
+  background: var(--color-surface);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  min-height: 360px;
+  padding: 32px 28px;
+
+  transform-style: preserve-3d;
+  will-change: transform;
+
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  /* Başlangıç gizli */
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.service-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) perspective(800px) rotateX(0) rotateY(0);
+}
+
+.service-card:hover {
+  border-color: rgba(var(--color-accent-rgb), 0.35);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Partikül canvas */
+.card-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+/* Parlama efekti */
+.card-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(var(--color-accent-rgb), 0.07) 0%, transparent 60%);
+}
+
+.service-card:hover .card-glow {
+  opacity: 1;
+}
+
+/* İçerik */
+.card-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Romen Rakamı (büyük, accent, sol üst) ───────────────────────────────── */
+.card-roman {
+  font-size: 1.1rem;
+  font-weight: 300;
+  /* Montserrat Light */
+  color: var(--color-accent);
+  opacity: 0.6;
+  line-height: 1;
+  margin-bottom: 0;
+  letter-spacing: 0.04em;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.service-card:hover .card-roman {
+  opacity: 0.9;
+}
+
+/* Başlık */
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .card-title {
+  color: var(--color-accent);
+}
+
+/* Açıklama */
+.card-desc {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  flex: 1;
+  transition: color 0.4s ease;
+}
+
+/* Alt link */
+.card-footer {
+  margin-top: 1.75rem;
+}
+
+.card-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, gap 0.2s ease;
+}
+
+.service-card:hover .card-link {
+  opacity: 1;
+  gap: 8px;
+}
+
+.card-link svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* ── Kıvılcım CTA Alanı ──────────────────────────────────────────────────── */
+.services-spark-area {
+  position: relative;
+  width: min(90vw, 1200px);
+  margin: 4rem auto 0;
+  text-align: center;
+  padding: 4rem 24px 3rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.services-spark-headline {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1.75rem;
+  transition: color 0.4s ease;
+}
+
+.services-spark-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 60px;
+  background: transparent;
+  /* Arka planı ::after verecek */
+  color: #0a0a0a;
+  /* Siyah yazı (sabit sarı için) */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease;
+  overflow: hidden;
+  /* Dönen ışığın taşmaması için */
+  z-index: 1;
+  /* Yazının arkadaki pseudo-elementlerin üzerinde kalması için */
+}
+
+/* Dönen ışık süzmesi efekti */
+.services-spark-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  /* Buton köşelerini güvenle kapatacak net bir boyut */
+  height: 400px;
+  /* Başlangıcı ve bitişi keskin olmayan yumuşak bir ışık hüzmesi */
+  background: conic-gradient(from 0deg, transparent 0%, transparent 35%, rgba(255, 255, 255, 0.9) 50%, transparent 65%, transparent 100%);
+  transform: translate(-50%, -50%);
+  z-index: -2;
+  animation: rotateLight 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateLight {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Butonun kendi sabit sarı arka planı */
+.services-spark-btn::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  /* Işık süzmesi için 2px kalınlık bırakır */
+  background: #f5c518;
+  border-radius: 6px;
+  /* 8px - 2px */
+  z-index: -1;
+  transition: background 0.2s ease;
+}
+
+.services-spark-btn:hover {
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 0 10px 32px rgba(245, 197, 24, 0.4);
+}
+
+.services-spark-btn:hover::after {
+  background: #ffd700;
+}
+
+.services-spark-btn:active {
+  transform: scale(0.97);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-section {
+    padding: 80px 0 100px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 24px;
+    min-height: 320px;
+  }
+
+  .card-roman {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .services-section {
+    padding: 60px 0 80px;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Aydınlık (Light) Tema - Işık Süzmesi Rengi
+   -------------------------------------------------------------------------- */
+[data-theme="light"] .services-spark-btn::before {
+  background: conic-gradient(from 0deg, transparent 0%, transparent 35%, rgba(0, 0, 0, 0.8) 50%, transparent 65%, transparent 100%);
+}
